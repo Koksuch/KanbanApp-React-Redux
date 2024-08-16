@@ -1,0 +1,39 @@
+import { useSelector, useDispatch } from "react-redux"
+import { AppDispatch, RootState } from "../../redux/store"
+import { setActiveBoard } from "../../redux/boardSlice"
+import { BoardType } from "../../helpers/boardTypes"
+
+type BoardsListProps = {
+  theme: string
+}
+
+const BoardsList = (props: BoardsListProps) => {
+  const boards: BoardType[] = useSelector(
+    (state: RootState) => state.rooms.boards,
+  )
+  const activeBoardId = useSelector(
+    (state: RootState) => state.rooms.activeBoard?.id,
+  )
+  const dispatch: AppDispatch = useDispatch()
+
+  return (
+    <ul className="overflow-auto">
+      <li>
+        {boards.map((board) => (
+          <button
+            key={board.id}
+            onClick={() => dispatch(setActiveBoard(board))}
+            className={`mb-4 flex w-11/12 items-center gap-3 rounded-e-full py-3 pl-6 font-semibold transition-all hover:fill-[#635fc7] hover:text-[#635fc7] ${props.theme === "light" ? "hover:bg-[#f4f7fd]" : "hover:bg-white"} ${activeBoardId === board.id ? "bg-[#635fc7] fill-white text-white" : ""}`}
+          >
+            <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 2.889A2.889 2.889 0 0 1 2.889 0H13.11A2.889 2.889 0 0 1 16 2.889V13.11A2.888 2.888 0 0 1 13.111 16H2.89A2.889 2.889 0 0 1 0 13.111V2.89Zm1.333 5.555v4.667c0 .859.697 1.556 1.556 1.556h6.889V8.444H1.333Zm8.445-1.333V1.333h-6.89A1.556 1.556 0 0 0 1.334 2.89v4.22h8.445Zm4.889-1.333H11.11v4.444h3.556V5.778Zm0 5.778H11.11v3.11h2a1.556 1.556 0 0 0 1.556-1.555v-1.555Zm0-7.112V2.89a1.555 1.555 0 0 0-1.556-1.556h-2v3.111h3.556Z"></path>
+            </svg>
+            {board?.name}
+          </button>
+        ))}
+      </li>
+    </ul>
+  )
+}
+
+export default BoardsList
