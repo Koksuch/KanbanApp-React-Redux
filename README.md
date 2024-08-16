@@ -1,6 +1,6 @@
 # Kanban App - React, Redux, Tailwind
 
-[Live Demo]()
+[Live Demo](https://master--prismatic-alfajores-6bd79d.netlify.app/)
 
 Design for this app was taken from one of the challanges on [FrontendMentor.io](https://www.frontendmentor.io/challenges/kanban-task-management-web-app-wgQLt-HlbB)
 
