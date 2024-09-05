@@ -146,7 +146,7 @@ const LoadedRoomView = () => {
         items={collumns}
         strategy={horizontalListSortingStrategy}
       >
-        <div className="overflow flex gap-8 overflow-x-auto p-5">
+        <div className="flex gap-8 overflow-x-auto p-5">
           {collumns.map((collumn) => (
             <SortableItem
               key={collumn.id}
@@ -156,7 +156,7 @@ const LoadedRoomView = () => {
               <Collumn collumn={collumn} tasks={currentTasks[collumn.id]} />
             </SortableItem>
           ))}
-          {boardCollumns.length > 0 && <NewCollumn />}
+          {collumns.length > 0 && <NewCollumn />}
         </div>
       </SortableContext>
     </DndContext>

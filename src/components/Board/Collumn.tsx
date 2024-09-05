@@ -96,6 +96,7 @@ const Collumn = (props: CollumnProps) => {
           )}
         </div>
       </SortableContext>
+
       {isModalOpen && (
         <TaskInfoModal
           task={{ ...activeTask } as TaskType}
