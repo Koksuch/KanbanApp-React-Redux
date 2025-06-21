@@ -25,7 +25,10 @@ const ThemeToggle = (props: ThemeToggleProps) => {
           onChange={() => props.toggleTheme()}
           checked={props.theme === "dark"}
         />
-        <div className="peer relative h-6 w-11 rounded-full bg-[#828fa3] after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-[#635fc7] peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none"></div>
+        <div
+          data-testid="theme-toggle-checkbox"
+          className="peer relative h-6 w-11 rounded-full bg-[#828fa3] after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-[#635fc7] peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none"
+        ></div>
       </label>
       <svg
         width="25"

@@ -127,8 +127,7 @@ export const roomSlice = createSlice({
 
     setActiveBoard: (state, actions: { payload: { id: string } }) => {
       state.activeBoard =
-        state.boards.find((board) => board.id === actions.payload.id) ||
-        ({} as BoardType)
+        state.boards.find((board) => board.id === actions.payload.id) || null
     },
 
     addCollumn: (
@@ -277,7 +276,6 @@ export const roomSlice = createSlice({
     },
 
     editTasksOrder: (state, actions: { payload: { tasks: TaskType[] } }) => {
-      // znajdź taski w state który zostały wysłane w payload i przenieś je na koniec tablicy w takiej samej kolejności jak w payload
       actions.payload.tasks.forEach((task) => {
         const taskIndex = state.tasks.findIndex(
           (stateTask) => stateTask.id === task.id,
@@ -305,7 +303,6 @@ export const roomSlice = createSlice({
       state.tasks[taskIndex].collumnId = sellectedCollumn.id
       state.tasks[taskIndex].status = sellectedCollumn.name
 
-      //move task to end of the list
       const task = state.tasks.splice(taskIndex, 1)[0]
       state.tasks.push(task)
 
