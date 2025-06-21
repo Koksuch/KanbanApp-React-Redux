@@ -32,6 +32,7 @@ const OpenConfigBtn = (props: OpenConfigBtnProps) => {
   return (
     <div className="relative">
       <button
+        data-testid="open-task-config-btns"
         className={`rounded-full p-2 transition-all ${theme === "light" ? "fill-[#3c424b] hover:bg-[#0000000a]" : "fill-white hover:bg-[#ffffff14]"}`}
         onClick={() => setIsShowing(!isShowing)}
       >

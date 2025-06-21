@@ -115,6 +115,7 @@ const TaskInfoModal = (props: TaskInfoModalProps) => {
   return (
     props.isShowing && (
       <div
+        data-testid="task-info-modal"
         className={`fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-[#00000099] ${theme === "light" ? "text-black" : "text-white"}`}
       >
         <div
@@ -139,6 +140,7 @@ const TaskInfoModal = (props: TaskInfoModalProps) => {
                   className={`flex w-full cursor-pointer items-center gap-3 rounded p-2 pl-4 text-sm font-bold transition-all ${theme === "light" ? "bg-[#f4f7fd] hover:bg-[#635fc720]" : "bg-[#20212c] hover:bg-[#635fc720]"}`}
                 >
                   <input
+                    data-testid="subtask-checkbox"
                     type="checkbox"
                     className={`my-2 outline-none focus:ring-1 focus:ring-[#635fc7] ${theme === "light" ? "accent-[#f4f7fd] hover:accent-[#635fc720]" : "accent-[#20212c] hover:accent-[#635fc720]"}`}
                     checked={subtask.isCompleted}

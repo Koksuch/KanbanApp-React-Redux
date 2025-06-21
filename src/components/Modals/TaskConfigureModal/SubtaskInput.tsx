@@ -10,6 +10,7 @@ const SubTaskInput = (props: SubTaskInputProps) => {
   return (
     <>
       <input
+        data-testid="subtask-name-input"
         className={`w-full rounded-md border border-[#828fa3] p-2 outline-none transition-all hover:border-[#635fc7] focus:border-[#635fc7] focus:ring-1 focus:ring-[#635fc7] ${props.theme === "light" ? "bg-white text-black" : "bg-[#2b2c37] text-white"}`}
         value={props.subTask.name}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -19,6 +20,7 @@ const SubTaskInput = (props: SubTaskInputProps) => {
         type="text"
       />
       <button
+        data-testid="remove-subtask-btn"
         className="rounded-md fill-[#828fa3] outline-none transition-all hover:border-[#635fc7] hover:fill-red-500 focus:border-[#635fc7] focus:ring-2 focus:ring-[#635fc7]"
         onClick={() => props.removeSubtask(props.subTaskIndex)}
       >

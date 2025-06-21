@@ -6,6 +6,7 @@ type NewBoardBtnProps = {
 const NewBoardBtn = (props: NewBoardBtnProps) => {
   return (
     <button
+      data-testid="new-board-btn"
       className={`mb-4 flex w-11/12 items-center gap-2 rounded-e-full fill-[#635fc7] py-3 pl-6 font-semibold text-[#635fc7] transition-all ${props.theme === "light" ? "hover:bg-[#f4f7fd]" : "hover:bg-white"}`}
       onClick={() => props.onClick()}
     >

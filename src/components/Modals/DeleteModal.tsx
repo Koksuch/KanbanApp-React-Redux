@@ -55,6 +55,7 @@ const DeleteModal = (props: DeleteModalProps) => {
           </p>
           <div className="flex w-full gap-5">
             <button
+              data-testid="confirm-delete-btn"
               className={`w-full rounded-full bg-red-500 px-5 py-2 text-base font-bold text-white outline-none transition-all hover:border-[#635fc7] hover:bg-[#ff9898] focus:border-[#635fc7] focus:ring-4 focus:ring-[#635fc7]`}
               onClick={handleDeleteClick}
             >

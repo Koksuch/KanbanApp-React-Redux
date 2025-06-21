@@ -30,12 +30,14 @@ const ConfigureBoardBtns = forwardRef<HTMLDivElement, ConfigureBoardBtnsProps>(
             className={`absolute bottom-0 right-0 mr-6 flex translate-y-full flex-col rounded-b-md py-2 ${props.theme === "light" ? "bg-white" : "bg-[#2b2c37]"}`}
           >
             <button
+              data-testid="edit-board-btn"
               onClick={handleEditClick}
               className={`w-full px-5 py-1 text-left text-[#828fa3] ${props.theme === "light" ? "hover:bg-[#0000000a]" : "hover:bg-[#ffffff14]"}`}
             >
               Edit Board
             </button>
             <button
+              data-testid="delete-board-btn"
               onClick={handleDeleteClick}
               className={`w-full px-5 py-1 text-left text-red-500 ${props.theme === "light" ? "hover:bg-[#0000000a]" : "hover:bg-[#ffffff14]"}`}
             >

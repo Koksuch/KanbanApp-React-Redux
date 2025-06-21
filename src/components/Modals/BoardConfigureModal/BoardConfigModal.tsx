@@ -39,17 +39,16 @@ const BoardConfigModal = (props: BoardConfigModalProps) => {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (props.isEdit) {
-      if (activeBoard) {
-        const activeBoardCollumns = boardCollumns.filter(
-          (collumn: GlobalCT) => collumn.boardId === activeBoard?.id,
-        )
+    if (props.isEdit && activeBoard && props.isShowing) {
+      const activeBoardCollumns = boardCollumns.filter(
+        (collumn: GlobalCT) => collumn.boardId === activeBoard?.id,
+      )
 
-        setBoardName(activeBoard.name)
-        setCollumns([...activeBoardCollumns])
-      }
+      setBoardName(activeBoard.name)
+      setCollumns([...activeBoardCollumns])
     }
-  }, [props.isEdit, activeBoard, boardCollumns, props.isShowing])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.isShowing])
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -181,6 +180,7 @@ const BoardConfigModal = (props: BoardConfigModalProps) => {
   return (
     props.isShowing && (
       <div
+        data-testid="board-config-modal"
         className={`fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-[#00000099] ${props.theme === "light" ? "text-black" : "text-white"}`}
       >
         <div
@@ -191,13 +191,18 @@ const BoardConfigModal = (props: BoardConfigModalProps) => {
             {props.isEdit ? "Edit Board" : "Add New Board"}
           </h2>
           <div className="flex flex-col gap-3">
-            <label className="text-sm font-bold">Board Name</label>
+            <label htmlFor="boardName" className="text-sm font-bold">
+              Board Name
+            </label>
             <input
+              data-testid="board-name-input"
               className={`mb-5 rounded-md border border-[#828fa3] p-2 outline-none transition-all hover:border-[#635fc7] focus:border-[#635fc7] focus:ring-1 focus:ring-[#635fc7] ${props.theme === "light" ? "bg-white text-black" : "bg-[#2b2c37] text-white"}`}
               value={boardName}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setBoardName(e.target.value)
               }
+              id="boardName"
+              name="boardName"
               type="text"
             />
           </div>
@@ -224,6 +229,7 @@ const BoardConfigModal = (props: BoardConfigModalProps) => {
               </p>
             )}
             <button
+              data-testid="add-collumn-btn"
               className={`flex justify-center gap-1 rounded-full fill-[#635fc7] px-5 py-2 text-base font-bold text-[#635fc7] outline-none transition-all hover:border-[#635fc7] hover:bg-[#d8d7f1] focus:border-[#635fc7] focus:ring-2 focus:ring-[#635fc7] ${props.theme === "light" ? "bg-[#f4f7fd] hover:bg-[#f4f7fd]" : "bg-white"}`}
               onClick={addColl}
             >
@@ -240,6 +246,7 @@ const BoardConfigModal = (props: BoardConfigModalProps) => {
             </button>
             {props.isEdit ? (
               <button
+                data-testid="save-changes-btn"
                 className={`rounded-full bg-[#635fc7] fill-white py-2 font-bold text-white outline-none transition-all hover:border-[#a8a4ff] hover:bg-[#a8a4ff] focus:border-[#a8a4ff] focus:ring-2 focus:ring-[#a8a4ff]`}
                 onClick={updateBoard}
               >
@@ -247,6 +254,7 @@ const BoardConfigModal = (props: BoardConfigModalProps) => {
               </button>
             ) : (
               <button
+                data-testid="create-new-board-btn"
                 className={`rounded-full bg-[#635fc7] fill-white py-2 font-bold text-white outline-none transition-all hover:border-[#a8a4ff] hover:bg-[#a8a4ff] focus:border-[#a8a4ff] focus:ring-2 focus:ring-[#a8a4ff]`}
                 onClick={createNewBoard}
               >

@@ -273,6 +273,7 @@ const TaskConfigureModal = (props: TaskConfigureModalProps) => {
   return (
     props.isShowing && (
       <div
+        data-testid="task-config-modal"
         className={`fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-[#00000099] ${theme === "light" ? "text-black" : "text-white"}`}
       >
         <div
@@ -287,6 +288,7 @@ const TaskConfigureModal = (props: TaskConfigureModalProps) => {
               Title
             </label>
             <input
+              data-testid="task-title-input"
               className={`mb-5 rounded-md border border-[#828fa3] p-2 outline-none transition-all hover:border-[#635fc7] focus:border-[#635fc7] focus:ring-1 focus:ring-[#635fc7] ${theme === "light" ? "bg-white text-black" : "bg-[#2b2c37] text-white"}`}
               id="title"
               type="text"
@@ -302,6 +304,7 @@ const TaskConfigureModal = (props: TaskConfigureModalProps) => {
               Description
             </label>
             <textarea
+              data-testid="task-description-input"
               className={`w-full rounded-md border border-[#828fa3] p-2 outline-none transition-all hover:border-[#635fc7] focus:border-[#635fc7] focus:ring-1 focus:ring-[#635fc7] ${theme === "light" ? "bg-white text-black" : "bg-[#2b2c37] text-white"}`}
               id="description"
               placeholder="e.g. It's always good to take a break. I'll be back in 5 minutes."
@@ -336,6 +339,7 @@ const TaskConfigureModal = (props: TaskConfigureModalProps) => {
               </p>
             )}
             <button
+              data-testid="add-subtask-btn"
               className={`flex justify-center gap-1 rounded-full fill-[#635fc7] px-5 py-2 text-base font-bold text-[#635fc7] outline-none transition-all hover:border-[#635fc7] hover:bg-[#d8d7f1] focus:border-[#635fc7] focus:ring-2 focus:ring-[#635fc7] ${theme === "light" ? "bg-[#f4f7fd] hover:bg-[#f4f7fd]" : "bg-white"}`}
               onClick={addSubTask}
             >
@@ -365,6 +369,7 @@ const TaskConfigureModal = (props: TaskConfigureModalProps) => {
             </div>
             {props.isEdit ? (
               <button
+                data-testid="save-task-btn"
                 className={`rounded-full bg-[#635fc7] fill-white py-2 font-bold text-white outline-none transition-all hover:border-[#a8a4ff] hover:bg-[#a8a4ff] focus:border-[#a8a4ff] focus:ring-2 focus:ring-[#a8a4ff]`}
                 onClick={updateTask}
               >
@@ -372,6 +377,7 @@ const TaskConfigureModal = (props: TaskConfigureModalProps) => {
               </button>
             ) : (
               <button
+                data-testid="create-task-btn"
                 className={`rounded-full bg-[#635fc7] fill-white py-2 font-bold text-white outline-none transition-all hover:border-[#a8a4ff] hover:bg-[#a8a4ff] focus:border-[#a8a4ff] focus:ring-2 focus:ring-[#a8a4ff]`}
                 onClick={createNewTask}
               >

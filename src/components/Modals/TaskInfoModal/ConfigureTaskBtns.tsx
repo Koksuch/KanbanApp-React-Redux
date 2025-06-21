@@ -43,12 +43,14 @@ const ConfigureTaskBtns = forwardRef<HTMLDivElement, ConfigureTaskBtnsProps>(
             className={`absolute flex w-max flex-col rounded-md py-2 ${theme === "light" ? "bg-white shadow-lg" : "bg-[#20212c]"}`}
           >
             <button
+              data-testid="edit-task-btn"
               onClick={handleEditClick}
               className={`w-full px-5 py-1 text-left text-[#828fa3] ${theme === "light" ? "hover:bg-[#0000000a]" : "hover:bg-[#ffffff14]"}`}
             >
               Edit Task
             </button>
             <button
+              data-testid="delete-task-btn"
               onClick={handleDeleteClick}
               className={`w-full px-5 py-1 text-left text-red-500 ${theme === "light" ? "hover:bg-[#0000000a]" : "hover:bg-[#ffffff14]"}`}
             >

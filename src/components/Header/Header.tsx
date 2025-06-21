@@ -59,6 +59,7 @@ const Header = () => {
           />
           {activeBoard && (
             <button
+              data-testid="configure-board-btns"
               onClick={() => setIsBoardButtonsShowing(!isBoardButtonsShowing)}
               className={`rounded-full p-2 transition-all ${theme === "light" ? "fill-[#3c424b] hover:bg-[#0000000a]" : "fill-white hover:bg-[#ffffff14]"}`}
             >

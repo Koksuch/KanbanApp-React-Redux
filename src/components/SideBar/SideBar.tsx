@@ -17,6 +17,7 @@ const SideBar = () => {
 
   return (
     <div
+      data-testid="sidebar"
       className={`flex h-full w-full flex-col justify-between border-r-[1px] fill-[#828fa3] text-left text-[#828fa3] ${theme === "light" ? "border-[#e4ebfa]" : "border-[#ffffff22]"}`}
     >
       <div className="">

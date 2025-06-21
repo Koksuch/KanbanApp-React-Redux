@@ -13,7 +13,8 @@ function App() {
     <>
       <ToastContainer position="bottom-right" theme={theme} draggable />
       <div
-        className={`flex h-screen w-full flex-col text-white ${theme === "light" ? "text-black; bg-white" : "bg-[#2b2c37] text-white"}`}
+        data-testid="app-container"
+        className={`flex h-screen w-full flex-col text-white ${theme === "light" ? "bg-white text-black" : "bg-[#2b2c37] text-white"}`}
       >
         <div className="w-full">
           <Header />
@@ -23,6 +24,7 @@ function App() {
             <SideBar />
           </div>
           <div
+            data-testid="board-container"
             className={`flex w-5/6 ${theme === "light" ? "bg-[#f4f7fd] text-black" : "bg-[#20212c] text-white"}`}
           >
             <Room />

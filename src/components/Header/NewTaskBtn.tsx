@@ -7,6 +7,7 @@ type NewTaskBtnProps = {
 const NewTaskBtn = (props: NewTaskBtnProps) => {
   return (
     <button
+      data-testid="new-task-btn"
       onClick={props.onClick}
       className={`flex gap-1 rounded-full bg-[#635fc7] fill-white px-5 py-2 text-base font-bold text-white transition-all hover:bg-[#a8a4ff] ${props.theme === "light" ? "disabled:bg-[#0000001f] disabled:fill-[#00000042] disabled:text-[#00000042]" : "disabled:bg-[#ffffff1f] disabled:fill-[#ffffff4d] disabled:text-[#ffffff4d]"}`}
       disabled={props.disabled}
